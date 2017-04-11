@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'E:\ASP\1\ASP_MVC_2\ASP_MVC_2\Models\DB\DemoModel.edmx'. 
+﻿// T4 code generation is enabled for model 'E:\ASP\4\OB\ASP_MVC_2\ASP_MVC_2\Models\DB\DemoModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

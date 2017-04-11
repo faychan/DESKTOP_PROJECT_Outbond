@@ -61,5 +61,24 @@ namespace ASP_MVC_2.Controllers
             }
             return View();
         }
+
+        public ActionResult AddOutbond()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Outbond(OutbondView OV)
+        {
+            if (ModelState.IsValid)
+            {
+                OutbondManager OM = new OutbondManager();
+                
+                    OM.AddOutbond(OV);
+                    return RedirectToAction("Welcome", "Home");
+                
+            }
+            return View();
+        }
     }
 }

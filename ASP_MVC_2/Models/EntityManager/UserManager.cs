@@ -12,7 +12,7 @@ namespace ASP_MVC_2.Models.EntityManager
         public void AddUserAccount(UserSignUpView user)
         {
 
-            using (DemoDBEntities1 db = new DemoDBEntities1())
+            using (DemoEntities db = new DemoEntities())
             {
 
                 SYSUser SU = new SYSUser();
@@ -61,14 +61,14 @@ namespace ASP_MVC_2.Models.EntityManager
 
         public bool IsLoginNameExist(string loginName)
         {
-            using (DemoDBEntities1 db = new DemoDBEntities1())
+            using (DemoEntities db = new DemoEntities())
             {
                 return db.SYSUsers.Where(o => o.LoginName.Equals(loginName)).Any();
             }
         }
         public string GetUserPassword(string loginName)
         {
-            using (DemoDBEntities1 db = new DemoDBEntities1())
+            using (DemoEntities db = new DemoEntities())
             {
                 var user = db.SYSUsers.Where(o =>
 o.LoginName.ToLower().Equals(loginName));
@@ -80,7 +80,7 @@ o.LoginName.ToLower().Equals(loginName));
         }
         public bool IsUserInRole(string loginName, string roleName)
         {
-            using (DemoDBEntities1 db = new DemoDBEntities1())
+            using (DemoEntities db = new DemoEntities())
             {
                 SYSUser SU = db.SYSUsers.Where(o =>
 o.LoginName.ToLower().Equals(loginName))?.FirstOrDefault();
@@ -103,7 +103,7 @@ o.LoginName.ToLower().Equals(loginName))?.FirstOrDefault();
 
         public List<LOOKUPAvailableRole> GetAllRoles()
         {
-            using (DemoDBEntities1 db = new DemoDBEntities1())
+            using (DemoEntities db = new DemoEntities())
             {
                 var roles = db.LOOKUPRoles.Select(o => new LOOKUPAvailableRole
                 {
@@ -117,7 +117,7 @@ o.LoginName.ToLower().Equals(loginName))?.FirstOrDefault();
         }
         public int GetUserID(string loginName)
         {
-            using (DemoDBEntities1 db = new DemoDBEntities1())
+            using (DemoEntities db = new DemoEntities())
             {
                 var user = db.SYSUsers.Where(o => o.LoginName.Equals(loginName));
                 if (user.Any())
@@ -129,7 +129,7 @@ o.LoginName.ToLower().Equals(loginName))?.FirstOrDefault();
         public List<UserProfileView> GetAllUserProfiles()
         {
             List<UserProfileView> profiles = new List<UserProfileView>();
-            using (DemoDBEntities1 db = new DemoDBEntities1())
+            using (DemoEntities db = new DemoEntities())
             {
                 UserProfileView UPV;
                 var users = db.SYSUsers.ToList();
@@ -173,7 +173,7 @@ o.LoginName.ToLower().Equals(loginName))?.FirstOrDefault();
             string userGender = string.Empty;
 
             userID = GetUserID(loginName);
-            using (DemoDBEntities1 db = new DemoDBEntities1())
+            using (DemoEntities db = new DemoEntities())
             {
                 userAssignedRoleID = db.SYSUserRoles.Where(o => o.SYSUserID ==
 userID)?.FirstOrDefault().LOOKUPRoleID;
@@ -202,7 +202,7 @@ userID)?.FirstOrDefault().LOOKUPRoleID;
         public void UpdateUserAccount(UserProfileView user)
         {
 
-            using (DemoDBEntities1 db = new DemoDBEntities1())
+            using (DemoEntities db = new DemoEntities())
             {
                 using (var dbContextTransaction = db.Database.BeginTransaction())
                 {
@@ -280,7 +280,7 @@ userID)?.FirstOrDefault().LOOKUPRoleID;
 
         public void DeleteUser(int userID)
         {
-            using (DemoDBEntities1 db = new DemoDBEntities1())
+            using (DemoEntities db = new DemoEntities())
             {
                 using (var dbContextTransaction = db.Database.BeginTransaction())
                 {
@@ -318,7 +318,7 @@ userID)?.FirstOrDefault().LOOKUPRoleID;
         }
         public UserProfileView GetUserProfile(int userID) {
             UserProfileView UPV = new UserProfileView();
-            using (DemoDBEntities1 db = new DemoDBEntities1()) {
+            using (DemoEntities db = new DemoEntities()) {
                 var user = db.SYSUsers.Find(userID);
                 if (user != null) {
                     UPV.SYSUserID = user.SYSUserID;

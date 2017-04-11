@@ -13,10 +13,10 @@ namespace ASP_MVC_2.Models.DB
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DemoDBEntities1 : DbContext
+    public partial class DemoEntities : DbContext
     {
-        public DemoDBEntities1()
-            : base("name=DemoDBEntities1")
+        public DemoEntities()
+            : base("name=DemoEntities")
         {
         }
     
@@ -25,13 +25,12 @@ namespace ASP_MVC_2.Models.DB
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<laporan> laporans { get; set; }
         public virtual DbSet<LOOKUPRole> LOOKUPRoles { get; set; }
+        public virtual DbSet<outbond> outbonds { get; set; }
+        public virtual DbSet<pelanggan> pelanggans { get; set; }
         public virtual DbSet<SYSUser> SYSUsers { get; set; }
         public virtual DbSet<SYSUserProfile> SYSUserProfiles { get; set; }
         public virtual DbSet<SYSUserRole> SYSUserRoles { get; set; }
-
-        public System.Data.Entity.DbSet<ASP_MVC_2.Models.ViewModel.UserLoginView> UserLoginViews { get; set; }
-
-        public System.Data.Entity.DbSet<ASP_MVC_2.Models.ViewModel.UserProfileView> UserProfileViews { get; set; }
     }
 }

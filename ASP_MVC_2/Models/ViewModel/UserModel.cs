@@ -85,4 +85,6 @@ namespace ASP_MVC_2.Models.ViewModel
         public UserRoles UserRoles { get; set; }
         public UserGender UserGender { get; set; }
     }
+
+    
 }
